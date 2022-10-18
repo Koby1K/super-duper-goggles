@@ -29,14 +29,15 @@ async function cxnDB(){
 
 app.get('/', async (req, res) => {
   
-  let result = cxnDB().catch(console.error)
+  let quoteData = await cxnDB().catch(console.error);
 
-  console.log("get/:", result);
+  // console.log("get/:", result);
 
 
   res.render('index', {
      someVar: "Hello from young Padawan we will be training w/ a full data stack",
-     herokuVar: process.env.HEROKU_NAME
+     herokuVar: process.env.HEROKU_NAME,   
+   //  quoteData: result
      })
 })
 
