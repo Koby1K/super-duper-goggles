@@ -13,9 +13,9 @@ async function cxnDB(){
   try{
     client.connect;
     const collection = client.db("kingramquebec").collection("quotes");
-    const result = await collection.find().toArray();
+   // const result = await collection.find().toArray();
 
-    console.log("cxnDB result:", result);
+   // console.log("cxnDB result:", result);
     return result;
 
   }
@@ -29,9 +29,9 @@ async function cxnDB(){
 
 app.get('/', async (req, res) => {
   
-  let quoteData = await cxnDB().catch(console.error);
+ // let quoteData = await cxnDB().catch(console.error);
 
-  // console.log("get/:", result);
+  // console.log("get/:", quoteData);
 
 
   res.render('index', {
