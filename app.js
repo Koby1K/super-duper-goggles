@@ -35,7 +35,7 @@ app.get('/', async (req, res) => {
 
 
   res.render('index', {
-     someVar: "Hello from young Padawan we will be training w/ a full data stack",
+     someVar: "Hello young Padawan we will be training w/ a full data stack",
      herokuVar: process.env.HEROKU_NAME,   
    //  quoteData: result
      })
