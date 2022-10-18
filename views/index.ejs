@@ -1,0 +1,56 @@
+<h1>Hi there, we are in EJS</h1>
+
+<h2> <%=someVar %></h2>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KingramQuebec Quote App</title>
+  </head>
+
+  <body>
+    <h1>May Node and Express be with you.</h1>
+
+    <section data-position="add-quote">
+        <h2>Add quote</h2>
+  
+        <form action="/quotes" method="POST">
+          <input type="text" placeholder="name" name="name" />
+          <input type="text" placeholder="quote" name="quote" />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+  
+      <section data-position="update-quote">
+        <div>
+          <h2>Darth Barry invades!</h2>
+          <p>
+            Replace first MiddleRow Jedi's quote with a quote written by Darth Barry
+          </p>
+          <button id="update-button">Replace Jedi's quote</button>
+        </div>
+      </section>
+  
+      <section data-position="delete-quote">
+        <div>
+          <h2>Remove Darth Barry!</h2>
+          <p>
+            Delete one Darth Barry's quote. Does nothing if there are no more
+            Darth Barry's quote
+          </p>
+          <button id="delete-button">Delete Darth Barrys's quote</button>
+        </div>
+        <div id="message"></div>
+      </section>
+  
+      <section data-position="quotes">
+        <h2>Quotes</h2>
+  
+       
+  
+      <script src="main.js"></script>
+    </body>
+  </html>
