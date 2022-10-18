@@ -23,8 +23,9 @@
     "url": "https://github.com/kobyingram11/super-duper-goggles/issues"
   },
   "homepage": "https://github.com/kobyingram11/super-duper-goggles#readme",
-  "devDependencies": {
+  "dependencies": {
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
   }
 }
