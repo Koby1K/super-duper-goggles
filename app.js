@@ -4,10 +4,9 @@ const app = express()
 const bodyParser = require('body-parser');
 const { urlencoded } = require('body-parser');
 const { ObjectId } = require('mongodb')
-const PORT = (process.env.PORT || 3000);
+const PORT = (process.env.PORT || 5000);
 const herokuVar = process.env.HEROKU_NAME || "kingram"
 const { MongoClient, ServerApiVersion } = require('mongodb');
-
 const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
@@ -125,7 +124,7 @@ app.post('/addQuote', async (req, res) => {
       
     })
    
-app.listen(PORT || 3000, () =>
-  console.log(`Server is running & listening on port ${PORT}`));
+app.listen(process.env.PORT || 5000, function() {
+  console.log(`Server is running & listening on port ${PORT}`); 
 
-
+});
