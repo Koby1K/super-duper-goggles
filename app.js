@@ -4,8 +4,8 @@ const app = express()
 const bodyParser = require('body-parser');
 const { urlencoded } = require('body-parser');
 const { ObjectId } = require('mongodb')
-// const PORT = (process.env.PORT || 3000);
-// const herokuVar = process.env.HEROKU_NAME || "kingram"
+const PORT = (process.env.PORT || 3000);
+const herokuVar = process.env.HEROKU_NAME || "kingram"
 const { MongoClient, ServerApiVersion } = require('mongodb');
 // const MONGO_URI = "mongodb+srv://kingram:bDKr6sPxMLSwfaap@cluster0.mzkvvap.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -34,19 +34,19 @@ async function cxnDB(){
   }
 }
 
-// app.get('/', async (req, res) => {
+ app.get('/', async (req, res) => {
   
- // let quoteData = await cxnDB().catch(console.error);
+  let quoteData = await cxnDB().catch(console.error);
 
- // console.log("get/:", quoteData);
+  console.log("get/:", quoteData);
 
 
- // res.render('index.ejs', {
-   //  someVar: "Today young Padawan we will be training w/ a full data stack.",
-    // herokuVar: process.env.HEROKU_NAME,   
-    // quoteData: quoteData
-    // })
-//})
+  res.render('index.ejs', {
+     someVar: "Today young Padawan we will be training w/ a full data stack.",
+     herokuVar: process.env.HEROKU_NAME,   
+     quoteData: quoteData
+     })
+})
 
 app.post('/addQuote', async (req, res) => {
 
@@ -125,6 +125,7 @@ app.post('/addQuote', async (req, res) => {
       
     })
    
-app.listen(process.env.PORT || 3000, () =>
-  console.log("Server is running & listening"));
+app.listen(PORT || 3000, () =>
+  console.log(`Server is running & listening on port ${PORT}`));
+
 
