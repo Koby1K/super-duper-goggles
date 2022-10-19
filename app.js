@@ -11,6 +11,8 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
+app.use(bodyParser.json());
+app.use(express.static('public'))
 
 let someVar = "";
 
@@ -39,7 +41,7 @@ app.get('/', async (req, res) => {
   console.log("get/:", quoteData);
 
 
-  res.render('index', {
+  res.render('index.ejs', {
      someVar: "Today young Padawan we will be training w/ a full data stack.",
      herokuVar: process.env.HEROKU_NAME,   
      quoteData: quoteData
