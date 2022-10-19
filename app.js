@@ -34,19 +34,19 @@ async function cxnDB(){
   }
 }
 
-app.get('/', async (req, res) => {
+// app.get('/', async (req, res) => {
   
-  let quoteData = await cxnDB().catch(console.error);
+ // let quoteData = await cxnDB().catch(console.error);
 
-  console.log("get/:", quoteData);
+ // console.log("get/:", quoteData);
 
 
-  res.render('index.ejs', {
-     someVar: "Today young Padawan we will be training w/ a full data stack.",
-     herokuVar: process.env.HEROKU_NAME,   
-     quoteData: quoteData
-     })
-})
+ // res.render('index.ejs', {
+   //  someVar: "Today young Padawan we will be training w/ a full data stack.",
+    // herokuVar: process.env.HEROKU_NAME,   
+    // quoteData: quoteData
+    // })
+//})
 
 app.post('/addQuote', async (req, res) => {
 
