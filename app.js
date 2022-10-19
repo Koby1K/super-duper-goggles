@@ -71,9 +71,11 @@ app.post('/addQuote', async (req, res) => {
 
         client.connect;
         const collection = client.db("kingramquebec").collection("quotes");
-        let result = await collection.findOneAndDelete( {
-        "_id": ObjectId(req.params.id)
-        })
+        let result = await collection.findOneAndDelete( 
+          {
+          "_id": ObjectId(req.params.id)
+          }
+        )
 
         .then(result => {
         console.log(result);

@@ -38,11 +38,12 @@
           <p>
             Delete one of Darth Barry's quote. 
           </p>
-          <% for (var i=0; i < quoteData.length; i++) { %></br>
-            <form method="POST" action="/deleteQuotes/<%= quoteData[i]._id %>" style="display: inline-block">
-              <%= quoteData[i].quote_name %> (<%= quoteData[i].speaker %>)
-          <button action="/deleteQuotes" value="delete"></button>
-        </form>
+          <% for (var i=0; i< quoteData.length; i++) { %></br>
+            <form method="POST" action="/deleteQuote/<%= quoteData[i]._id %>" style="display: inline-block">
+            <%= quoteData[i].quote_name %> (<%= quoteData[i].speaker %>)
+            <button action="/deleteQuote" value="delete"></button>
+            </form>
+          </br>
           <% } %>
         </div>
         <div id="message"></div>
