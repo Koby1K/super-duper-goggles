@@ -64,21 +64,21 @@ app.post('/addQuote', async (req, res) => {
 
     })
 
-  app.post('/deleteQuote/:_id', async (req, res) => {
+  app.post('/deleteQuote/:id', async (req, res) => {
 
       try {
-        console.log("req.params.id: ", req.params.id)
+        console.log('req.params.id: ', req.params.id)
 
         client.connect;
         const collection = client.db("kingramquebec").collection("quotes");
-        let result = await collection.findOneAndDelete( 
+        let quoteData = await collection.findOneAndDelete( 
           {
           "_id": ObjectId(req.params.id)
           }
         )
 
-        .then(result => {
-        console.log(result);
+        .then(quoteData => {
+        console.log(quoteData);
         res.redirect('/');
       })
        .catch(error => console.error(error))
@@ -87,8 +87,32 @@ app.post('/addQuote', async (req, res) => {
        // client.close()
       }
       
-        })
+    })
 
+    app.post('/updateQuote/:id', async (req, res) => {
+
+      try {
+        console.log('req.params.id: ', req.params.id)
+
+        client.connect;
+        const collection = client.db("kingramquebec").collection("quotes");
+        let quoteData = await collection.findOneAndUpdate( 
+          {
+          "_id": ObjectId(req.params.id)
+          }
+        )
+
+        .then(quoteData => {
+        console.log(quoteData);
+        res.redirect('/');
+      })
+       .catch(error => console.error(error))
+      }
+        finally{
+       // client.close()
+      }
+      
+    })
    
 app.listen(PORT, () => {
   console.log(`Server is running & listening on port ${PORT}`);

@@ -24,24 +24,35 @@
   
       <section data-position="update-quote">
         <div>
-          <h2>Darth Barry invades!</h2>
+          <h2>Update your communications!</h2>
           <p>
-            Replace first Middle Row Jedi's quote with a quote written by Darth Barry
+            Replace a quote w/ the force.
           </p>
-          <button id="update-button">Replace Jedi's quote</button>
+          <label for="speaker">Name</label>
+            <input name="speaker"></br>
+          <label for="quote_name">Quote</label>
+            <input name="quote_name"></br>
+          <% for (var i=0; i< quoteData.length; i++) { %></br>
+            <form method="POST" action="/updateQuote/<%= quoteData[i]._id %>" style="display: inline-block">
+            <%= quoteData[i].quote_name %> (<%= quoteData[i].speaker %>)
+            <button action="/updateQuote" value="update">UPDATE</button>
+            </form>
+          </br>
+          <% } %>
+          
         </div>
       </section>
   
       <section data-position="delete-quotes">
         <div>
-          <h2>Remove Darth Barry!</h2>
+          <h2>Delete all the data in a holocron! </h2>
           <p>
-            Delete one of Darth Barry's quote. 
+            Delete a message w/ the force. 
           </p>
           <% for (var i=0; i< quoteData.length; i++) { %></br>
             <form method="POST" action="/deleteQuote/<%= quoteData[i]._id %>" style="display: inline-block">
             <%= quoteData[i].quote_name %> (<%= quoteData[i].speaker %>)
-            <button action="/deleteQuote" value="delete"></button>
+            <button action="/deleteQuote" value="delete">DELETE</button>
             </form>
           </br>
           <% } %>
