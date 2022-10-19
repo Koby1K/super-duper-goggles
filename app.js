@@ -1,10 +1,10 @@
 require("dotenv").config();
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
-const { urlencoded } = require('body-parser')
+const bodyParser = require('body-parser');
+const { urlencoded } = require('body-parser');
 const { ObjectId } = require('mongodb')
-const PORT = (process.env.PORT || 3000);
+// const PORT = (process.env.PORT || 3000);
 // const herokuVar = process.env.HEROKU_NAME || "kingram"
 const { MongoClient, ServerApiVersion } = require('mongodb');
 // const MONGO_URI = "mongodb+srv://kingram:bDKr6sPxMLSwfaap@cluster0.mzkvvap.mongodb.net/?retryWrites=true&w=majority";
@@ -124,5 +124,5 @@ app.post('/addQuote', async (req, res) => {
     })
    
 app.listen(process.env.PORT || 3000, () =>
-  console.log(`Server is running & listening on port ${PORT}`));
+  console.log("Server is running & listening"));
 
