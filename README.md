@@ -18,3 +18,15 @@ Third
 -set up our main async f/n to connection and read from db
 - get our data from mongo -> express ->
 
+Fourth
+- get you data from mongo to express to ejs
+- read multiple records
+- use.find.toArray()
+- pass that result to EJS then step through
+
+Fifth
+- "form"ulize `<form>` for Create,Read, Update, Delete. (CRUD)
+-  form points to endpoints on express
+- need that ObjectID from mongoDB
+
+
