@@ -7,7 +7,6 @@ const { ObjectId } = require('mongodb')
 const PORT = (process.env.PORT || 5000);
 const herokuVar = process.env.HEROKU_NAME || "kingram"
 const { MongoClient, ServerApiVersion } = require('mongodb');
-// const MONGO_URI = "mongodb+srv://kingram:bDKr6sPxMLSwfaap@cluster0.mzkvvap.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
