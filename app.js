@@ -89,6 +89,12 @@ app.post('/addQuote', async (req, res) => {
       
     })
 
+    //app.get('/updateQuote/:id', async (req, res) => {
+      //const id = req.params.id
+      //const temp = await (updateTemplet({id}))
+     // res.send(temp)
+   // })
+
     app.post('/updateQuote/:id', async (req, res) => {
 
       try {
@@ -99,7 +105,15 @@ app.post('/addQuote', async (req, res) => {
         let quoteData = await collection.findOneAndUpdate( 
           {
           "_id": ObjectId(req.params.id)
-          }
+          },
+          {
+          $set: {
+            speaker: '- Darth Barry',
+            quote_name: 'The Dark Side will prevail!',
+          },
+        
+        }
+      
         )
 
         .then(quoteData => {

@@ -28,10 +28,7 @@
           <p>
             Replace a quote w/ the force.
           </p>
-          <label for="speaker">Name</label>
-            <input name="speaker"></br>
-          <label for="quote_name">Quote</label>
-            <input name="quote_name"></br>
+          
           <% for (var i=0; i< quoteData.length; i++) { %></br>
             <form method="POST" action="/updateQuote/<%= quoteData[i]._id %>" style="display: inline-block">
             <%= quoteData[i].quote_name %> (<%= quoteData[i].speaker %>)
